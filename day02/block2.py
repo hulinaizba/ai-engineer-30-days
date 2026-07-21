@@ -1,48 +1,74 @@
-# 1 Возраст > школьник / подросток / взрослый / на пенсии
-age = int(input("Введите ваш возраст: "))
+
+# day02/block2.py
+# Дима Еженков — День 2, Блок 2: Условия (if-elif-else)
+# Дата: 22.07.2026
+
+
+
+
+# 5. Возрастные категории
+age = int(input("Сколько тебе лет? "))
+
 if age < 14:
-    print("школьник")
+	print("школьник")
 elif 14 <= age <= 17:
-    print("подросток")
+	print("подросток")
 elif 18 <= age <= 65:
-    print("взрослый")
+	print("взрослый")
 else:
-    print("на пенсии")
+	print("на пенсии")
+	
 
-# 2 Число > четкое/нечеткое + знак
+
+
+
+# 6. Чётное/нечётное + знак
 num = int(input("Введите число: "))
-if num == 0:
-    print("0 - это ноль")
-else:
-    parity = "четное" if num % 2 == 0 else "нечетное"
-    sign = "положительное" if num > 0 else "отрицательное"
-    print(f"{num} - {parity} {sign}")
+parity = "чётное" if num % 2 == 0 else "нечётное"
 
-# 3 Vysokosnyy god
+if num > 0:
+	sign = "положительное"
+elif num < 0:
+	sign = "отрицательное"
+else:
+	sign = "ноль"
+
+print(f"{num} — {parity} {sign}")
+
+
+
+
+# 7. Високосный год
 year = int(input("Введите год: "))
 if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-    print("високосный")
+	print(f"{year} — високосный год")
 else:
-    print("не високосный")
+	print(f"{year} — не високосный год")
+	
 
-# 4 Калькулятор (+ - * /)
-try:
-    a = float(input("Введите первое число: "))
-    b = float(input("Введите второе число: "))
-    op = input("Введите операцию (+, -, *, /): ")
+    
 
-    if op == "+":
-        print("Результат:", a + b)
-    elif op == "-":
-        print("Результат:", a - b)
-    elif op == "*":
-        print("Результат:", a * b)
-    elif op == "/":
-        if b == 0:
-            print("Ошибка: деление на ноль невозможно")
-        else:
-            print("Результат:", a / b)
-    else:
-        print("Неизвестная операция.")
-except ValueError:
-    print("Ошибка: нужно вводить числа.")
+# 8. Калькулятор
+print("\n=== Простой калькулятор ===")
+a = float(input("Первое число: "))
+op = input("Операция (+ - * /): ").strip()
+b = float(input("Второе число: "))
+
+if op == "+":
+	result = a + b
+elif op == "-":
+	result = a - b
+elif op == "*":
+	result = a * b
+elif op == "/":
+	if b == 0:
+		print("Ошибка: деление на ноль!")
+		result = None
+	else:
+		result = a / b
+else:
+	print("Неизвестная операция!")
+	result = None
+
+if result is not None:
+	print(f"Результат: {result:.2f}")
