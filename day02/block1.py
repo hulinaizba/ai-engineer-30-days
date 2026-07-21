@@ -1,37 +1,49 @@
+# day02/block1.py
+# Дима Еженк — День 2, Блок 1: Типы и строки
+# Дата: 22.07.2026
+
+
 # 1. Базовые типы
-int_var = 10
+# Создай переменные и выведи их + type()
+
+int_var = 42
 float_var = 3.14
-complex_var = 2 + 5j
+str_var = "Hello, Python!"
 bool_var = True
-str_var = "hello"
-none_var = None
+list_var = [1, 2, 3, "four"]
+dict_var = {"name": "Дима", "age": 30, "city": "Tel Aviv"}
 
-print(int_var, type(int_var))
-print(float_var, type(float_var))
-print(complex_var, type(complex_var))
-print(bool_var, type(bool_var))
-print(str_var, type(str_var))
-print(none_var, type(none_var))
+print("int:", int_var, type(int_var))
+print("float:", float_var, type(float_var))
+print("str:", str_var, type(str_var))
+print("bool:", bool_var, type(bool_var))
+print("list:", list_var, type(list_var))
+print("dict:", dict_var, type(dict_var))
 
-# 2. Работа со строкой "Machine Learning Engineer"
-text = "Machine Learning Engineer"
-print(len(text))
-print(text.upper())
-print(text[:7])
-print(text[-8:])
-print(" ".join(text.split()[::-1]))
 
-# 3. Ввод двух чисел и арифметические операции
-first_number = int(input("Введите первое число: "))
-second_number = int(input("Введите второе число: "))
-print("Сумма:", first_number + second_number)
-print("Разность:", first_number - second_number)
-print("Произведение:", first_number * second_number)
-print("Деление:", format(first_number / second_number, ".2f"))
-print("Остаток:", first_number % second_number)
+# 2. Работа со строками
+s = "Machine Learning Engineer"
 
-# 4. "42" и число 7 - сложение как числа и как строки
-string_number = "42"
-number = 7
-print("Сложение как числа:", int(string_number) + number)
-print("Сложение как строки:", string_number + str(number))
+print(len(s))                    # длина
+print(s.upper())                 # верхний регистр
+print(s[:7])                     # первые 7 символов
+print(s[-8:])                    # последние 8
+print(s.split()[::-1])           # слова в обратном порядке
+
+
+# 3. Арифметические операции с вводом
+a = float(input("Первое число: "))
+b = float(input("Второе число: "))
+
+print("Сумма:", a + b)
+print("Разность:", a - b)
+print("Произведение:", a * b)
+print(f"Деление: {a / b:.2f}")   # важно: 2 знака после запятой
+
+
+# 4. Преобразование типов
+s = "42"
+num = 7
+
+print(int(s) + num)        # как числа → 49
+print(s + str(num))        # как строки → "427"
