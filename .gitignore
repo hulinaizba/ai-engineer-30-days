@@ -1,0 +1,6 @@
+Miniconda*.sh
+*.pkg
+*.dmg
+venv/
+__pycache__/
+.DS_Store
