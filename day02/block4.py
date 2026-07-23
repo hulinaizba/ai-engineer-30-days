@@ -1,67 +1,82 @@
-# 1 функция приветствия
+# day02/block4.py
+# Дима Еженк — День 2, Блок 4: Функции
+# Дата: 22.07.2026
 
-def green(name):
+
+
+
+
+def greet(name):
+    """Возвращает приветствие"""
     return f"Привет, {name}!"
 
-print(green("Дима"))
 
 
-# 2 проверка числа на простоту
+
+
 def is_prime(n):
-    if n < 2:
+    """Проверяет, является ли число простым"""
+    if n <= 1:
         return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
             return False
+        i += 6
     return True
 
-print(is_prime(7))      # True
-print(is_prime(12))     # False
 
 
-# 3 подсчёт гласных в строке
+
+
 def count_vowels(text):
-    vowels = "aeiouAEIOUаеёиоуыэюяАЕЁИОУЫЭЮЯ"
-    count = 0
-    for char in text:
-        if char in vowels:
-            count += 1
-    return count
-
-print(count_vowels("Machine Learning Engineer"))
+    """Подсчитывает гласные буквы (рус + англ)"""
+    vowels = "aeiouаеёиоуыэюяAEIOUАЕЁИОУЫЭЮЯ"
+    return sum(1 for char in text if char in vowels)
 
 
-# 4 конвертер температур
-def c_to_f(c):
-    return c * 9/5 + 32
-
-def f_to_c(f):
-    return (f - 32) * 5/9
-
-print(c_to_f(0))     # 32
-print(f_to_c(32))    # 0
 
 
-# 5 оценка сложности пароля
+def fahrenheit(celsius):
+    """Переводит °C в °F"""
+    return celsius * 9/5 + 32
+
+def celsius(fahrenheit_temp):
+    """Переводит °F в °C"""
+    return (fahrenheit_temp - 32) * 5/9
+
+
+
+
+
 def password_strength(pwd):
-    score = 0
+    """Оценивает силу пароля"""
+    if len(pwd) < 8:
+        return "слабый"
+    
+    has_letter = any(c.isalpha() for c in pwd)
+    has_digit = any(c.isdigit() for c in pwd)
+    
+    if has_letter and has_digit:
+        return "сильный"
+    return "средний"
 
-    if len(pwd) >= 8:
-        score += 1
-    if any(c.isdigit() for c in pwd):
-        score += 1
-    if any(c.isupper() for c in pwd):
-        score += 1
-    if any(c.islower() for c in pwd):
-        score += 1
-    if any(c in "!@#$%^&*()-_=+[]{}" for c in pwd):
-        score += 1
 
-    if score <= 2:
-        return "Слабый"
-    elif score == 3:
-        return "Средний"
-    else:
-        return "Сильный"
 
-print(password_strength("Qwerty123!"))
+
+
+# === Тесты ===
+if __name__ == "__main__":
+    print(greet("Дима"))
+    print("is_prime(17):", is_prime(17))
+    print("is_prime(100):", is_prime(100))
+    print("is_prime(97):", is_prime(97))
+    print("Гласных в 'Привет, world!':", count_vowels("Привет, world!"))
+    print("25°C в °F:", fahrenheit(25))
+    print("Обратно:", celsius(fahrenheit(25)))
+    print("Сила пароля 'hello':", password_strength("hello"))
+    print("Сила пароля 'hello123':", password_strength("hello123"))
