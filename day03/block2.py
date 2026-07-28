@@ -1,7 +1,7 @@
 # day03/block2.py
 # Дима Еженков — День 3, Блок 2: Файлы
 # Дата: 23.07.2026
-
+import os
 
 # === Задача 6 ===
 # Записываем список покупок
@@ -18,10 +18,13 @@ with open("notes.txt", "r", encoding="utf-8") as f:
         print(f"{i}. {line.strip()}")
 
 
-
-
 # === Задача 7 ===
 print("\n=== Анализ words.txt ===")
+
+# Создаём файл, если его ещё нет
+if not os.path.exists("words.txt"):
+    with open("words.txt", "w", encoding="utf-8") as f:
+        f.write("python\nпрограммирование\nданные\nнейросеть\nмодель\nобучение\nалгоритм\nфункция\nсловарь\nсписок\n")
 
 with open("words.txt", "r", encoding="utf-8") as f:
     words = [line.strip() for line in f if line.strip()]
@@ -40,8 +43,6 @@ print("Слова длиннее 5 букв:")
 for word in words:
     if len(word) > 5:
         print("-", word)
-
-
 
 # === Задача 8 ===
 from datetime import datetime
