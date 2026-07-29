@@ -4,8 +4,6 @@
 
 import requests
 
-
-
 print("=== Пользователи ===\n")
 
 try:
