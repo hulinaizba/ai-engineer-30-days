@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 ## Использование
 
-\`\`\`ash
+\`\`\`bash
 python project01_data_analyzer/analyzer.py --dataset titanic
 
 cd project01_data_analyzer
