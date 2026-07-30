@@ -7,4 +7,3 @@ CLI-инструмент для быстрого анализа CSV-датасе
 
 ```bash
 pip install -r requirements.txt
-```
